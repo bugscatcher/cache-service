@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  redis:
+    image: redislabs/rebloom:2.2.4
+    restart: always
+    ports:
+      - 6379:6379
+
+  cache_service:
+    build: .
+    ports:
+      - 6565:6565
+    depends_on:
+      - redis

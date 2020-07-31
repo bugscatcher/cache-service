@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "pb";
+
+message GetRandomDataRequest {
+
+}
+
+message GetRandomDataResponse {
+    string data = 1;
+}
+
+service CacheService {
+    rpc GetRandomDataStream (stream GetRandomDataRequest) returns (stream GetRandomDataResponse);
+}
